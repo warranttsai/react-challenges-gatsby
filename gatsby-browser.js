@@ -8,3 +8,4 @@ import "./src/style.css"
 
 // Highlighting for code blocks
 import "prismjs/themes/prism.css"
+export { default as wrapRootElement } from "./state/ReduxWrapper"
