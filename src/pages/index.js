@@ -10,7 +10,7 @@ const BlogIndex = ({ data, location }) => {
   const posts = [
     {
       title: "Challenge 1: Text Analyzer",
-      slug: "/text-analyzer/",
+      slug: "/textanalyzer/",
       date: "Nov 11, 2023",
       excerpt:
         "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",

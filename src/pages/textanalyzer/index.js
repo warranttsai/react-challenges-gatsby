@@ -1,5 +1,5 @@
 // modules
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // components
 import Bio from "../../components/bio";
 import Layout from "../../components/layout";
@@ -8,7 +8,7 @@ export default function Page({ location }) {
   const siteTitle = "React Challenges with Gatsby.JS";
   const data = {
     title: "Challenge 1: Text Analyzer",
-    slug: "/text-analyzer/",
+    slug: "/textanalyzer/",
     date: "Nov 11, 2023",
     excerpt:
       "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
@@ -16,22 +16,16 @@ export default function Page({ location }) {
       "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
   };
   const [content, setContent] = useState("");
+  const [numOfWords, setNumOfWords] = useState(0);
+  const [numOfLetters, setNumOfLetters] = useState(0);
+  const [numOfSentences, setNumOfSentences] = useState(0);
+  const [numOfParagraphs, setNumOfParagraphs] = useState(0);
 
   const calculateWords = (value) => {
-    let strBuf = "";
+    let strBuf = value.replace(".", "").replace("\n", " ").split(" ");
     let counter = 0;
-    const lenValue = +value.length;
-    for (const [index, item] of value) {
-      console.log(index, item);
-      strBuf += item;
-      if (item === " " || +index === lenValue - 1) {
-        // If the letter is space or reached the end of content
-        if (strBuf.match(/^[A-Za-z0-9]/g)) {
-          counter += 1;
-        }
-        strBuf = "";
-      }
-    }
+    for (const item of strBuf) if (item.match(/^[A-Za-z0-9]/g)) counter += 1;
+
     return counter;
   };
   const calculateLetters = (value) => {
@@ -41,12 +35,18 @@ export default function Page({ location }) {
         strBuf += item;
       }
     }
-    return strBuf;
+    return strBuf.length;
   };
   const calculateSentences = (value) => {
     const strArr = value.split(". ");
     return strArr.length;
   };
+  useEffect(() => {
+    setNumOfWords(calculateWords(content));
+    setNumOfLetters(calculateLetters(content));
+    setNumOfSentences(calculateSentences(content));
+    setNumOfParagraphs(content.split("\n").length);
+  }, [content]);
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -72,19 +72,19 @@ export default function Page({ location }) {
           >
             <div style={{ flex: 1 }}>
               <label htmlFor="numOfWords">Number of words: </label>
-              <span>{content ? calculateWords(content) : 0}</span>
+              <span>{numOfWords}</span>
             </div>
             <div style={{ flex: 1 }}>
               <label htmlFor="numOfLetters">Number of letters: </label>
-              <span>{content ? calculateLetters(content).length : 0}</span>
+              <span>{numOfLetters}</span>
             </div>
             <div style={{ flex: 1 }}>
               <label htmlFor="numOfSentences">Number of sentences: </label>
-              <span>{content ? calculateSentences(content) : 0}</span>
+              <span>{numOfSentences}</span>
             </div>
             <div style={{ flex: 1 }}>
               <label htmlFor="numOfParagraphs">Number of paragraphs: </label>
-              <span>{content ? content.split("\n").length : 0}</span>
+              <span>{numOfParagraphs}</span>
             </div>
           </div>
         </div>
