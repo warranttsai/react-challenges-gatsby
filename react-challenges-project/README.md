@@ -1,13 +1,16 @@
-# react-challenges-gatsby
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://www.gatsbyjs.com">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby's blog starter
+</h1>
 
-This project is used to contain the experiments with React Challenges. Please see the following links:
+Kick off your project with this blog boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-- https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/
-- https://reactchallenges.live/
-
-# Technology Stacks
-
-- Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog/)
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.com/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
 
@@ -92,3 +95,5 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 [Build, Deploy, and Host On Netlify](https://netlify.com)
 
 The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
+
+<!-- AUTO-GENERATED-CONTENT:END -->

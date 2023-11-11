@@ -10,4 +10,3 @@
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({ lang: `en` })
 }
-export { default as wrapRootElement } from "./state/ReduxWrapper"
