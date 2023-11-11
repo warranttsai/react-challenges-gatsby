@@ -9,15 +9,15 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `React Challenges with Gatsby.JS`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Warrant TSAI`,
+      summary: `who lives and works in Melbourne Australia doing self-learning.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A blog to store his piece for React Challenges.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `warrant-tsai-20463414b`,
     },
   },
   plugins: [
