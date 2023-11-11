@@ -88,8 +88,7 @@ export default function Page({ location }) {
             </div>
           </div>
         </div>
-      </article>{" "}
-      */
+      </article>
     </Layout>
   );
 }
