@@ -1,13 +1,23 @@
-import * as React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+// modules
+import * as React from "react";
+import { Link } from "gatsby";
+// components
+import Bio from "../components/bio";
+import Layout from "../components/layout";
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const siteTitle = "React Challenges with Gatsby.JS";
+  const posts = [
+    {
+      title: "Challenge 1: Text Analyzer",
+      slug: "/text-analyzer/",
+      date: "Nov 11, 2023",
+      excerpt:
+        "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+      description:
+        "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+    },
+  ];
 
   if (posts.length === 0) {
     return (
@@ -19,18 +29,18 @@ const BlogIndex = ({ data, location }) => {
           gatsby-config.js).
         </p>
       </Layout>
-    )
+    );
   }
 
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+        {posts.map((post) => {
+          const title = post.title || post.slug;
 
           return (
-            <li key={post.fields.slug}>
+            <li key={post.slug}>
               <article
                 className="post-list-item"
                 itemScope
@@ -38,55 +48,27 @@ const BlogIndex = ({ data, location }) => {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={post.slug} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>{post.date}</small>
                 </header>
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post.description || post.excerpt,
                     }}
                     itemProp="description"
                   />
                 </section>
               </article>
             </li>
-          )
+          );
         })}
       </ol>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogIndex
-
-/**
- * Head export to define metadata for the page
- */
-export const Head = () => <Seo title="All challenges" />
-
-export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
-  }
-`
+export default BlogIndex;

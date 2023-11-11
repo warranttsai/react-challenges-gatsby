@@ -7,17 +7,17 @@ This project is used to contain the experiments with React Challenges. Please se
 
 # Technology Stacks
 
-- Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-blog/)
+- Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-hello-world/)
 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the blog starter.
+    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli)) to create a new site, specifying the hello-world starter.
 
     ```shell
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    # create a new Gatsby site using the hello-world starter
+    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
     ```
 
 1.  **Start developing.**
@@ -25,7 +25,7 @@ This project is used to contain the experiments with React Challenges. Please se
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-blog-starter/
+    cd my-hello-world-starter/
     gatsby develop
     ```
 
@@ -35,13 +35,13 @@ This project is used to contain the experiments with React Challenges. Please se
 
     Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby Tutorial](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-4/#use-graphiql-to-explore-the-data-layer-and-write-graphql-queries).
 
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🚀 Quick start (Netlify)
 
 Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
 ## 🧐 What's inside?
 
