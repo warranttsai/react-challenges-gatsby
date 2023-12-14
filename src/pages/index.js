@@ -67,8 +67,15 @@ const BlogIndex = ({ data, location }) => {
           Explore and Discover the Challenges
         </p>
         {/* spacer */}
-        <span style={{ height: 100 }} />
-        <p className="second-title text-center">Start Exploreing</p>
+        <span style={{ height: 30 }} />
+        <p
+          className="text-center floating-up-down"
+          style={{ fontSize: "clamp(16px, 1.6vw, 23px)" }}
+        >
+          Start Exploreing...
+        </p>
+        {/* spacer */}
+        <span style={{ height: 70 }} />
       </section>
       {/* React Challenge List */}
       <section className="content-grid">
