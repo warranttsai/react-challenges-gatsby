@@ -37,6 +37,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      {/* Greeting Banner */}
       <section className="content-grid" style={{ minHeight: 500 }}>
         {/* spacer */}
         <span style={{ height: 100 }} />
@@ -50,12 +51,15 @@ const BlogIndex = ({ data, location }) => {
         <span style={{ height: 100 }} />
         <p className="second-title text-center">Start Exploreing</p>
       </section>
-      {/* <section className="react-challenge-list-section align-items-center">
-        <ReactChallengeCard />
-        <ReactChallengeCard />
-        <ReactChallengeCard />
-        <ReactChallengeCard />
-      </section> */}
+      {/* React Challenge List */}
+      <section className="content-grid">
+        <div className="react-challenge-list-section align-items-center">
+          <ReactChallengeCard />
+          <ReactChallengeCard />
+          <ReactChallengeCard />
+          <ReactChallengeCard />
+        </div>
+      </section>
       {/* <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
