@@ -11,7 +11,6 @@
 .react-challenge-item {
   flex: 0 0 calc(33.33% - 20px); /* This will limit the items to 33.33% width with 20px spacing, adjust as needed */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  padding: 10px;
 
   @media (max-width: 992px) {
     flex: 0 0 calc(50% - 20px); /* 2 items per row for screen widths up to 992px */

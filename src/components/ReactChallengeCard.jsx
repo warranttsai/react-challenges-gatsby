@@ -10,12 +10,12 @@ export default function ReactChallengeCard({
 }) {
   return (
     <div className="card react-challenge-item">
-      <div className="d-flex justify-content-between" style={{ minWidth: 250 }}>
-        <img style={{ height: 30, width: 30 }} src={Icon} alt="" />
-        <h5 className="card-title">{`React Challenge ${number}`}</h5>
-      </div>
       <div className="card-body">
-        <h5 className="card-title">{title}</h5>
+        <div className="d-flex" style={{ gap: 10 }}>
+          <img style={{ height: 30, width: 30 }} src={Icon} alt="" />
+          <h5 className="card-title">{`React Challenge ${number}`}</h5>
+        </div>
+        <b>{title}</b>
         <p className="card-text">{description}</p>
         <Link href={slug} className="btn btn-primary" itemProp="url">
           Go!
