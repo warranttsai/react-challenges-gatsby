@@ -37,23 +37,21 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <section className="full-width content-grid">
-        <div className="greeting-banner d-flex flex-column justify-content-center align-items-center">
-          <span className="main-title">Welcome to My React Challenges</span>
-          <span className="second-title">
-            Explore and Discover the Challenges
-          </span>
-          {/* spacer */}
-          <span style={{ height: 200 }} />
-          <span className="second-title mt-5">Start Exploreing</span>
-        </div>
+      <section className="content-grid">
+        {/* <div className="greeting-banner d-flex flex-column justify-content-center align-items-center"> */}
+        <h1 className="main-title">Welcome to My React Challenges</h1>
+        {/* <p className="second-title">Explore and Discover the Challenges</p> */}
+        {/* spacer */}
+        {/* <span style={{ height: 200 }} /> */}
+        {/* <p className="second-title mt-5">Start Exploreing</p> */}
+        {/* </div> */}
       </section>
-      <section className="react-challenge-list-section align-items-center">
+      {/* <section className="react-challenge-list-section align-items-center">
         <ReactChallengeCard />
         <ReactChallengeCard />
         <ReactChallengeCard />
         <ReactChallengeCard />
-      </section>
+      </section> */}
       {/* <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
