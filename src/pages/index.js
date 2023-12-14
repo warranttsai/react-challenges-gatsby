@@ -1,12 +1,14 @@
 // modules
 import * as React from "react";
 import { Link } from "gatsby";
+// scss
+import "../styles/root-page.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 // components
 import Bio from "../components/bio";
 import Layout from "../components/layout";
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = "React Challenges with Gatsby.JS";
   const posts = [
     {
       title: "Challenge 1: Text Analyzer",
@@ -19,21 +21,31 @@ const BlogIndex = ({ data, location }) => {
     },
   ];
 
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    );
-  }
+  // if (posts.length === 0) {
+  //   return (
+  //     <Layout location={location} title={siteTitle}>
+  //       <Bio />
+  //       <p>
+  //         No blog posts found. Add markdown posts to "content/blog" (or the
+  //         directory you specified for the "gatsby-source-filesystem" plugin in
+  //         gatsby-config.js).
+  //       </p>
+  //     </Layout>
+  //   );
+  // }
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
+      <section className="full-width greeting-banner d-flex flex-column justify-content-center align-items-center">
+        <span className="main-title">Welcome to My React Challenges</span>
+        <span className="second-title">
+          Explore and Discover the Challenges
+        </span>
+        <span style={{ height: 200 }} />
+        <span className="second-title mt-5">Start Exploreing</span>
+      </section>
+      <section></section>
+      <section></section>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post) => {
