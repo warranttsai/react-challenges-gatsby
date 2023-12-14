@@ -1,20 +1,25 @@
 import React from "react";
+import Icon from "../../static/react-challenge-icon.png";
+import { Link } from "gatsby";
 
-export default function ReactChallengeCard() {
+export default function ReactChallengeCard({
+  number,
+  title,
+  description,
+  slug,
+}) {
   return (
-    <div className="card react-challenge-item" style={{ width: "18rem" }}>
-      <div className="d-flex justify-content-between">
-        <img className="card-img-top" src="..." alt="" />
-        <h5 className="card-title">Card title</h5>
+    <div className="card react-challenge-item">
+      <div className="d-flex justify-content-between" style={{ minWidth: 250 }}>
+        <img style={{ height: 30, width: 30 }} src={Icon} alt="" />
+        <h5 className="card-title">{`React Challenge ${number}`}</h5>
       </div>
       <div className="card-body">
-        <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="#" className="btn btn-primary">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text">{description}</p>
+        <Link href={slug} className="btn btn-primary" itemProp="url">
           Go!
-        </a>
+        </Link>
       </div>
     </div>
   );
