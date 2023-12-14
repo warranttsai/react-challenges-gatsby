@@ -57,7 +57,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location}>
       {/* Greeting Banner */}
-      <section className="content-grid">
+      <section className="content-grid" style={{ backgroundColor: "#fefae0" }}>
         {/* spacer */}
         <span style={{ height: 100 }} />
         <h1 className="main-title text-center">

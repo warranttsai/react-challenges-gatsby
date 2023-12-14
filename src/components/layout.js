@@ -9,13 +9,16 @@ const Layout = ({ location, children }) => {
   return (
     <>
       <header className="content-grid" data-is-root-path={isRootPath}>
-        <div className="full-width header d-flex justify-content-center align-items-center">
+        <div
+          className="full-width header d-flex justify-content-center align-items-center"
+          style={{ gap: 50 }}
+        >
           <button class="text-button">REACT CHALLENGES</button>
           <button class="text-button">ABOUT ME</button>
           <button class="text-button">CONTACT</button>
         </div>
       </header>
-      <main>{children}</main>
+      <main style={{ backgroundColor: "#dda15e" }}>{children}</main>
       <footer className="content-grid" data-is-root-path={isRootPath}>
         <div className="full-width footer d-flex justify-content-center align-items-center">
           © {new Date().getFullYear()}, Built with
