@@ -1,7 +1,17 @@
 .greeting-banner {
   height: 700px;
-  border: 3px solid red;
 }
 .react-challenge-list-section {
-  border: 3px solid blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 20px;
+  max-width: 950px;
+  margin-inline: auto;
+}
+
+.react-challenge-item {
+  flex: 0 0 calc(33.33% - 20px); /* This will limit the items to 33.33% width with 20px spacing, adjust as needed */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
