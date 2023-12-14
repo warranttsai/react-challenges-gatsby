@@ -8,5 +8,5 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [`gatsby-plugin-image`, `gatsby-plugin-sharp`],
+  plugins: [`gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-plugin-sass`],
 };
