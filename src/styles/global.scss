@@ -1,7 +1,7 @@
 /* root layout */
 .content-grid {
   display: grid;
-  grid-template-columns: [full-width-start] 100px [break-start] 100px [content-start] 1fr [content-end] 100px [break-end] 100px [full-width-end];
+  grid-template-columns: [full-width-start] 100px [breakout-start] 100px [content-start] 1fr [content-end] 100px [breakout-end] 100px [full-width-end];
 }
 .content-grid > * {
   grid-column: content;
@@ -12,8 +12,12 @@
 .content-grid > .full-width {
   grid-column: full-width;
 }
-/* header */
+/* header & footer */
 .header {
+  height: 180px;
+  padding-block: 10px;
+}
+.footer {
   height: 180px;
   padding-block: 10px;
 }
