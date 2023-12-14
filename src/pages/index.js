@@ -1,13 +1,13 @@
 // modules
 import * as React from "react";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 // scss
 import "../styles/root-page.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 // components
 import Bio from "../components/bio";
 import Layout from "../components/layout";
-import ReactChallengeCard from "../components/reactChallengeCard";
+import ReactChallengeCard from "../components/ReactChallengeCard";
 
 const BlogIndex = ({ data, location }) => {
   const reactChallengeList = [
