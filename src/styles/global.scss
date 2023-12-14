@@ -1,3 +1,4 @@
+/* root layout */
 .content-grid {
   display: grid;
   grid-template-columns: [full-width-start] 100px [break-start] 100px [content-start] 1fr [content-end] 100px [break-end] 100px [full-width-end];
@@ -10,4 +11,27 @@
 }
 .content-grid > .full-width {
   grid-column: full-width;
+}
+/* header */
+.header {
+  height: 180px;
+  padding-block: 10px;
+}
+/* buttons */
+.text-button {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.text-button:hover {
+  color: red;
+}
+/* titles */
+.main-title {
+  font-size: clamp(50px, 5vw, 70px);
+}
+.second-title {
+  font-size: clamp(30px, 2.5vw, 50px);
 }
