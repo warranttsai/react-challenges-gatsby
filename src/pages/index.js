@@ -10,13 +10,32 @@ import Layout from "../components/layout";
 import ReactChallengeCard from "../components/reactChallengeCard";
 
 const BlogIndex = ({ data, location }) => {
-  const posts = [
+  const reactChallengeList = [
     {
-      title: "Challenge 1: Text Analyzer",
-      slug: "/textanalyzer/",
-      date: "Nov 11, 2023",
-      excerpt:
+      number: 1,
+      title: "Text Analyzer",
+      slug: "textanalyzer/",
+      description:
         "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+    },
+    {
+      number: 2,
+      title: "Text Analyzer",
+      slug: "textanalyzer/",
+      description:
+        "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+    },
+    {
+      number: 3,
+      title: "Text Analyzer",
+      slug: "textanalyzer/",
+      description:
+        "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+    },
+    {
+      number: 4,
+      title: "Text Analyzer",
+      slug: "textanalyzer/",
       description:
         "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
     },
@@ -38,7 +57,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location}>
       {/* Greeting Banner */}
-      <section className="content-grid" style={{ minHeight: 500 }}>
+      <section className="content-grid">
         {/* spacer */}
         <span style={{ height: 100 }} />
         <h1 className="main-title text-center">
@@ -54,10 +73,16 @@ const BlogIndex = ({ data, location }) => {
       {/* React Challenge List */}
       <section className="content-grid">
         <div className="react-challenge-list-section align-items-center">
-          <ReactChallengeCard />
-          <ReactChallengeCard />
-          <ReactChallengeCard />
-          <ReactChallengeCard />
+          {reactChallengeList.map((item) => {
+            return (
+              <ReactChallengeCard
+                number={item.number}
+                title={item.title}
+                description={item.description}
+                slug={item.slug}
+              />
+            );
+          })}
         </div>
       </section>
       {/* <Bio />
