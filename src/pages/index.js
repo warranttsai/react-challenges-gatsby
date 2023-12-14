@@ -37,14 +37,18 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <section className="content-grid">
-        {/* <div className="greeting-banner d-flex flex-column justify-content-center align-items-center"> */}
-        <h1 className="main-title">Welcome to My React Challenges</h1>
-        {/* <p className="second-title">Explore and Discover the Challenges</p> */}
+      <section className="content-grid" style={{ minHeight: 500 }}>
         {/* spacer */}
-        {/* <span style={{ height: 200 }} /> */}
-        {/* <p className="second-title mt-5">Start Exploreing</p> */}
-        {/* </div> */}
+        <span style={{ height: 100 }} />
+        <h1 className="main-title text-center">
+          Welcome to My React Challenges
+        </h1>
+        <p className="second-title text-center">
+          Explore and Discover the Challenges
+        </p>
+        {/* spacer */}
+        <span style={{ height: 100 }} />
+        <p className="second-title text-center">Start Exploreing</p>
       </section>
       {/* <section className="react-challenge-list-section align-items-center">
         <ReactChallengeCard />
