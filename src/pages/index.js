@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // components
 import Bio from "../components/bio";
 import Layout from "../components/layout";
+import ReactChallengeCard from "../components/reactChallengeCard";
 
 const BlogIndex = ({ data, location }) => {
   const posts = [
@@ -47,8 +48,11 @@ const BlogIndex = ({ data, location }) => {
           <span className="second-title mt-5">Start Exploreing</span>
         </div>
       </section>
-      <section className="react-challenge-list-section d-flex flex-column justify-content-center align-items-center">
-        <span>#100</span>
+      <section className="react-challenge-list-section align-items-center">
+        <ReactChallengeCard />
+        <ReactChallengeCard />
+        <ReactChallengeCard />
+        <ReactChallengeCard />
       </section>
       {/* <Bio />
       <ol style={{ listStyle: `none` }}>
