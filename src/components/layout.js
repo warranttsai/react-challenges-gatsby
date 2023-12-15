@@ -13,9 +13,15 @@ const Layout = ({ location, children }) => {
           className="full-width header d-flex justify-content-center align-items-center"
           style={{ gap: 50 }}
         >
-          <button class="text-button">REACT CHALLENGES</button>
-          <button class="text-button">ABOUT ME</button>
-          <button class="text-button">CONTACT</button>
+          <Link href="/" className="text-button" itemProp="url">
+            REACT CHALLENGES
+          </Link>
+          <Link href="about-me" className="text-button" itemProp="url">
+            ABOUT ME
+          </Link>
+          <Link href="contact" className="text-button" itemProp="url">
+            CONTACT
+          </Link>
         </div>
       </header>
       <main style={{ backgroundColor: "#dda15e" }}>{children}</main>
