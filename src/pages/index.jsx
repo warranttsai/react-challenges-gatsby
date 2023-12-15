@@ -43,7 +43,7 @@ const BlogIndex = ({ location }) => {
           className="text-center floating-up-down"
           style={{ fontSize: "clamp(16px, 1.6vw, 23px)" }}
         >
-          Start Exploreing...
+          Start Exploring...
         </p>
         {/* spacer */}
         <span style={{ height: 70 }} />
