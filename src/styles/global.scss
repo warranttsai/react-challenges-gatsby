@@ -60,6 +60,25 @@ body {
 .text-button:hover {
   color: #dda15e;
 }
+.text-button-fade-in {
+  color: black;
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+
+.text-button-fade-in:hover {
+  color: black;
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    /* Add other effects at 100% */
+  }
+}
 /* title */
 .main-title {
   font-size: clamp(50px, 5vw, 70px);
