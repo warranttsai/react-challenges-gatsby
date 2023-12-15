@@ -1,5 +1,5 @@
 // modules
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // components
 import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
@@ -51,6 +51,17 @@ export default function Page({ location }) {
     }, 1000);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, [3000]);
+  }, [showSuccessMessage]);
+  useEffect(() => {
+    setTimeout(() => {
+      setShowCopyMessage(false);
+    }, [3000]);
+  }, [showCopyMessage]);
+
   return (
     <Layout location={location}>
       <ReactChallengeLayout>
@@ -76,34 +87,20 @@ export default function Page({ location }) {
               setShowSuccessMessage(false);
             }}
           />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <button onClick={handleGeneratePassword}>
+          {/* Generate Button */}
+          <div className="d-flex flex-column justify-content-center align-items-center mt-1">
+            <button
+              className="btn btn-success"
+              onClick={handleGeneratePassword}
+            >
               Generate your password!
             </button>
           </div>
           {/* Warning Message */}
-          <div
-            className="w-100 d-flex flex-column"
-            style={{ justifyContent: "center", alignItems: "center" }}
-          >
-            {showSuccessMessage && (
-              <>
-                <span className="alert alert-primary" role="alert">
-                  Success!
-                </span>
-                <br />
-              </>
-            )}
+          <div className="w-100 d-flex flex-column justify-content-center align-items-center mt-1">
             {/* New Password */}
             <div
-              className="d-flex flex-column jusitfy-content-center align-items-center"
+              className="d-flex jusitfy-content-center align-items-center"
               style={{
                 width: "50%",
               }}
@@ -117,12 +114,37 @@ export default function Page({ location }) {
                 value={newPassword}
                 disabled
               />
-              {/* <ContentCopyIcon
-                className="flex-1 cursor-pointer"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-clipboard"
+                viewBox="0 0 16 16"
+                className="bi bi-clipboard flex-1 cursor-pointer"
                 onClick={handleClickCopy}
-              /> */}
+              >
+                <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z" />
+                <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z" />
+              </svg>
             </div>
           </div>
+          {showSuccessMessage && (
+            <div className="mt-4">
+              <span className="alert alert-primary" role="alert">
+                Success!
+              </span>
+              <br />
+            </div>
+          )}
+          {showCopyMessage && (
+            <div className="mt-4">
+              <span className="alert alert-success" role="alert">
+                Copied!
+              </span>
+              <br />
+            </div>
+          )}
         </div>
       </ReactChallengeLayout>
     </Layout>
