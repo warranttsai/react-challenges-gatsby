@@ -18,7 +18,7 @@ export default function ReactChallengeCard({
         <b>{title}</b>
         <p
           className="card-text"
-          style={{ maxHeight: 150, overflowY: "scroll" }}
+          style={{ maxHeight: 150, overflowY: "scroll", fontSize: "1rem" }}
         >
           {description}
         </p>

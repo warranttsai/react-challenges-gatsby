@@ -22,7 +22,15 @@ const BlogIndex = ({ location }) => {
       title: "Password Generator",
       slug: "password-generator/",
       description:
-        "This challenge is suitable for beginners as well. In this challenge, you will develop logic for a password generator, including options for creating and validating a password with a specified strength, copying the password, and passwords with desired characters.",
+        "In this challenge, you will develop logic for a password generator, including options for creating and validating a password with a specified strength, copying the password, and passwords with desired characters.",
+    },
+
+    {
+      number: 3,
+      title: "Random Quote Generator",
+      slug: "random-quote-generator/",
+      description:
+        "Challenge yourself to build a random quote generator using ReactJS and showcase your front-end development skills. Flourish your creativity with this fun code challenge! This challenge differs slightly from Text Analyzer and Password Generator because you need to fetch data from json-server using Axios.",
     },
   ];
 
