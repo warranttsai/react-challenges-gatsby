@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 const ReactChallengeLayout = ({ children }) => {
   return (
     <>
-      <article className="content-grid" style={{ paddingBlock: 100 }}>
+      <article className="content-grid" style={{ paddingBlock: 150 }}>
         <div>
           <Link href="/" className="text-button-fade-in">
             Back To List
