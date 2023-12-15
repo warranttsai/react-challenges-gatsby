@@ -11,15 +11,15 @@ const Layout = ({ location, children }) => {
       <header className="content-grid" data-is-root-path={isRootPath}>
         <div
           className="full-width header d-flex justify-content-center align-items-center"
-          style={{ gap: 50 }}
+          style={{ gap: 50, paddingInline: 20 }}
         >
           <Link href="/" className="text-button" itemProp="url">
             REACT CHALLENGES
           </Link>
-          <Link href="about-me" className="text-button" itemProp="url">
+          <Link href="/about-me" className="text-button" itemProp="url">
             ABOUT ME
           </Link>
-          <Link href="contact" className="text-button" itemProp="url">
+          <Link href="/contact" className="text-button" itemProp="url">
             CONTACT
           </Link>
         </div>
