@@ -5,7 +5,6 @@ import * as React from "react";
 import "../styles/root-page.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 // components
-import Bio from "../components/bio";
 import Layout from "../components/layout";
 import ReactChallengeCard from "../components/ReactChallengeCard";
 
@@ -92,39 +91,6 @@ const BlogIndex = ({ data, location }) => {
           })}
         </div>
       </section>
-      {/* <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post) => {
-          const title = post.title || post.slug;
-
-          return (
-            <li key={post.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          );
-        })}
-      </ol> */}
     </Layout>
   );
 };

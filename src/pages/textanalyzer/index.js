@@ -1,11 +1,9 @@
 // modules
 import React, { useState, useEffect } from "react";
 // components
-import Bio from "../../components/bio";
 import Layout from "../../components/layout";
 
 export default function Page({ location }) {
-  const siteTitle = "React Challenges with Gatsby.JS";
   const data = {
     title: "Challenge 1: Text Analyzer",
     slug: "/textanalyzer/",
@@ -49,9 +47,8 @@ export default function Page({ location }) {
   }, [content]);
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Bio />
-      <article>
+    <Layout location={location}>
+      <article className="content-grid" style={{ paddingBlock: 100 }}>
         <h1>{data.title}</h1>
         <span id="challenge1-introduction">{data.description}</span>
         <div id="challenge1-anser" style={{ marginBlock: 10, width: "80%" }}>
