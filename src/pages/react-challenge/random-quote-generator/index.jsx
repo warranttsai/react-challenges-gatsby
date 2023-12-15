@@ -1,6 +1,8 @@
 import React from "react";
 import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
+import ArrowLeft from "../../../../static/arrow-left.png";
+import ArrowRight from "../../../../static/arrow-right.png";
 
 export default function Page({ location }) {
   return (
@@ -21,6 +23,15 @@ export default function Page({ location }) {
             silence of our friends.
           </p>
           <span style={{ fontSize: 28 }}>- Martin Luther King Jr.</span>
+        </div>
+        {/* Buttons */}
+        <div className="d-flex mt-3" style={{ gap: 20 }}>
+          <a className="button-border-animation">
+            <img src={ArrowLeft} style={{ height: 40 }} alt="" />
+          </a>
+          <a className="button-border-animation">
+            <img src={ArrowRight} style={{ height: 40 }} alt="" />
+          </a>
         </div>
       </ReactChallengeLayout>
     </Layout>

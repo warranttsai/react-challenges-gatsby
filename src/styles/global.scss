@@ -79,6 +79,46 @@ body {
     /* Add other effects at 100% */
   }
 }
+
+.button-border-animation {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  overflow: hidden;
+  padding: 10px 30px;
+}
+.button-border-animation:hover {
+  background-color: #fefae0;
+  box-shadow: 0 0 50px #fefae0;
+}
+.button-border-animation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  transition: 0.5s;
+}
+
+.button-border-animation::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  transition: 0.5s;
+}
+.button-border-animation:hover::before,
+.button-border-animation:hover::after {
+  width: 100%;
+  height: 100%;
+}
 /* title */
 .main-title {
   font-size: clamp(50px, 5vw, 70px);
