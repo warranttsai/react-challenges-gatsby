@@ -1,5 +1,5 @@
 // modules
-import * as React from "react";
+import React, { useRef } from "react";
 // scss
 import "../styles/root-page.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,6 +8,7 @@ import Layout from "../components/layout";
 import ReactChallengeCard from "../components/ReactChallengeCard";
 
 const BlogIndex = ({ location }) => {
+  const reactChallengeRef = useRef(null);
   const reactChallengeList = [
     {
       number: 1,
@@ -39,17 +40,25 @@ const BlogIndex = ({ location }) => {
         </p>
         {/* spacer */}
         <span style={{ height: 30 }} />
-        <p
-          className="text-center floating-up-down"
-          style={{ fontSize: "clamp(16px, 1.6vw, 23px)" }}
-        >
-          Start Exploring...
-        </p>
+        <div className="floating-up-down text-center">
+          <span
+            style={{ fontSize: "clamp(16px, 1.6vw, 23px)", cursor: "pointer" }}
+            onClick={() => {
+              reactChallengeRef.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Start Exploring...
+          </span>
+        </div>
         {/* spacer */}
         <span style={{ height: 70 }} />
       </section>
       {/* React Challenge List */}
-      <section className="content-grid">
+      <section
+        className="content-grid"
+        id="react-challenge-section"
+        ref={reactChallengeRef}
+      >
         <div className="react-challenge-list-section d-flex flex-wrap align-items-center">
           {reactChallengeList.map((item) => {
             return (
