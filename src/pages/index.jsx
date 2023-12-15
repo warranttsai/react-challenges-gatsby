@@ -1,6 +1,5 @@
 // modules
 import * as React from "react";
-// import { Link } from "gatsby";
 // scss
 import "../styles/root-page.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -39,19 +38,6 @@ const BlogIndex = ({ data, location }) => {
         "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
     },
   ];
-
-  // if (posts.length === 0) {
-  //   return (
-  //     <Layout location={location} title={siteTitle}>
-  //       <Bio />
-  //       <p>
-  //         No blog posts found. Add markdown posts to "content/blog" (or the
-  //         directory you specified for the "gatsby-source-filesystem" plugin in
-  //         gatsby-config.js).
-  //       </p>
-  //     </Layout>
-  //   );
-  // }
 
   return (
     <Layout location={location}>

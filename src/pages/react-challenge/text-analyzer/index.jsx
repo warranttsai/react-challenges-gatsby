@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 // components
 import Layout from "../../../components/layout";
+import ReactChallengeLayout from "../../../components/reactChallengeLayout";
 
 export default function Page({ location }) {
   const [content, setContent] = useState("");
@@ -39,14 +40,14 @@ export default function Page({ location }) {
 
   return (
     <Layout location={location}>
-      <article className="content-grid" style={{ paddingBlock: 100 }}>
+      <ReactChallengeLayout>
         <h1>Text Analyzer</h1>
         <span id="challenge1-introduction">
           It is an easy challenge in which you have to build logic for a text
           analyzer that will count the number of words, letters, paragraphs, and
           more of the text written in the textarea
         </span>
-        <div id="challenge1-anser" style={{ marginBlock: 10, width: "80%" }}>
+        <div className="text-center mt-3">
           <textarea
             className="w-100"
             style={{ background: "white", color: "black", minHeight: 300 }}
@@ -80,7 +81,7 @@ export default function Page({ location }) {
             </div>
           </div>
         </div>
-      </article>
+      </ReactChallengeLayout>
     </Layout>
   );
 }
