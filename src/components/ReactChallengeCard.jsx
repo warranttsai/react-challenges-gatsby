@@ -16,14 +16,21 @@ export default function ReactChallengeCard({
           <h5 className="card-title">{`React Challenge ${number}`}</h5>
         </div>
         <b>{title}</b>
-        <p className="card-text">{description}</p>
-        <Link
-          href={`/react-challenge/` + slug}
-          className="btn btn-primary"
-          itemProp="url"
+        <p
+          className="card-text"
+          style={{ maxHeight: 150, overflowY: "scroll" }}
         >
-          Go!
-        </Link>
+          {description}
+        </p>
+        <div className="w-100 text-center">
+          <Link
+            href={`/react-challenge/` + slug}
+            className="btn btn-primary"
+            itemProp="url"
+          >
+            Go!
+          </Link>
+        </div>
       </div>
     </div>
   );
