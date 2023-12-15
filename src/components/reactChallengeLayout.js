@@ -6,7 +6,11 @@ const ReactChallengeLayout = ({ children }) => {
   return (
     <>
       <article className="content-grid" style={{ paddingBlock: 100 }}>
-        <Link className="text-button-fade-in">Back To List</Link>
+        <div>
+          <Link href="/" className="text-button-fade-in">
+            Back To List
+          </Link>
+        </div>
         <div className="border rounded mt-3" style={{ padding: "20px 50px" }}>
           {children}
         </div>

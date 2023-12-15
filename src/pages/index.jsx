@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "../components/layout";
 import ReactChallengeCard from "../components/ReactChallengeCard";
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ location }) => {
   const reactChallengeList = [
     {
       number: 1,
@@ -18,10 +18,10 @@ const BlogIndex = ({ data, location }) => {
     },
     {
       number: 2,
-      title: "Text Analyzer",
-      slug: "textanalyzer/",
+      title: "Password Generator",
+      slug: "password-generator/",
       description:
-        "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
+        "This challenge is suitable for beginners as well. In this challenge, you will develop logic for a password generator, including options for creating and validating a password with a specified strength, copying the password, and passwords with desired characters.",
     },
     {
       number: 3,
