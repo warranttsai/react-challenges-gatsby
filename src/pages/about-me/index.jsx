@@ -1,12 +1,15 @@
+// module
 import React from "react";
 import { Link } from "gatsby";
+// layout
 import Layout from "../../components/layout";
+// image
 import Instagram from "../../../static/instagram-icon.png";
 import Github from "../../../static/github-icon.png";
 import LinkedIn from "../../../static/linkedin-icon.png";
 import ProfilePic from "../../../static/profile-pic.png";
 
-export default function AboueMe({ data, location }) {
+export default function AboueMe({ location }) {
   return (
     <Layout location={location}>
       <section
@@ -18,7 +21,6 @@ export default function AboueMe({ data, location }) {
         <div
           className="d-flex flex-wrap"
           style={{
-            backgroundColor: "#d3d3d3",
             borderRadius: 10,
             padding: "20px 50px",
             marginBlock: 100,
