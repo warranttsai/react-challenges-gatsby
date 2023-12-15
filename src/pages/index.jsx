@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
     {
       number: 1,
       title: "Text Analyzer",
-      slug: "textanalyzer/",
+      slug: "text-analyzer/",
       description:
         "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
     },

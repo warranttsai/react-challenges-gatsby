@@ -1,18 +1,9 @@
 // modules
 import React, { useState, useEffect } from "react";
 // components
-import Layout from "../../components/layout";
+import Layout from "../../../components/layout";
 
 export default function Page({ location }) {
-  const data = {
-    title: "Challenge 1: Text Analyzer",
-    slug: "/textanalyzer/",
-    date: "Nov 11, 2023",
-    excerpt:
-      "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
-    description:
-      "It is an easy challenge in which you have to build logic for a text analyzer that will count the number of words, letters, paragraphs, and more of the text written in the textarea.",
-  };
   const [content, setContent] = useState("");
   const [numOfWords, setNumOfWords] = useState(0);
   const [numOfLetters, setNumOfLetters] = useState(0);
@@ -49,8 +40,12 @@ export default function Page({ location }) {
   return (
     <Layout location={location}>
       <article className="content-grid" style={{ paddingBlock: 100 }}>
-        <h1>{data.title}</h1>
-        <span id="challenge1-introduction">{data.description}</span>
+        <h1>Text Analyzer</h1>
+        <span id="challenge1-introduction">
+          It is an easy challenge in which you have to build logic for a text
+          analyzer that will count the number of words, letters, paragraphs, and
+          more of the text written in the textarea
+        </span>
         <div id="challenge1-anser" style={{ marginBlock: 10, width: "80%" }}>
           <textarea
             className="w-100"
