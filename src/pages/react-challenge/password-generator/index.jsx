@@ -56,9 +56,10 @@ export default function Page({ location }) {
       <ReactChallengeLayout>
         <h1>React Password Generator</h1>
         <span id="challenge1-introduction">
-          It is an easy challenge in which you have to build logic for a text
-          analyzer that will count the number of words, letters, paragraphs, and
-          more of the text written in the textarea
+          This challenge is suitable for beginners as well. In this challenge,
+          you will develop logic for a password generator, including options for
+          creating and validating a password with a specified strength, copying
+          the password, and passwords with desired characters.
         </span>
         <div className="text-center mt-3">
           <textarea
