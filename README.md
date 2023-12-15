@@ -1,13 +1,35 @@
 # react-challenges-gatsby
 
-This project is used to contain the experiments with React Challenges. Please see the following links:
+Project Link: https://react-challenges-gatsby.vercel.app/
+Description: This project was set to collect my pieces of scripts from the following questions:
 
-- https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/
-- https://reactchallenges.live/
+- React Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
+- 5 Free ReactJS Coding Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
+
+In the mean time, Figma was used to help designing the layout of the website.
+
+Figma Prototype:
+
+1. Root page: https://www.figma.com/file/uki5qUob6gXYX6BIlwR9ye/Main-Page?type=design&node-id=0%3A1&mode=design&t=Yj3viycBH9fgy6U6-1
+2. About me page: https://www.figma.com/file/tsI1gEsf8Fk5uV3sHKW6AG/Contact-%26-About-Me-Page?type=design&mode=design&t=Yj3viycBH9fgy6U6-1
+3. Challenge Page: https://www.figma.com/file/6H5ZfYE65FJy2G129GNLMy/Challenge-Page?type=design&mode=design&t=Yj3viycBH9fgy6U6-1
 
 # Technology Stacks
 
 - Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-hello-world/)
+
+# Commands
+
+"build": "gatsby build",
+"develop": "gatsby develop",
+"start": "gatsby develop",
+"serve": "gatsby serve",
+"clean": "gatsby clean",
+"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+
+# Node Version
+
+v20.9.0
 
 ## 🚀 Quick start
 
@@ -86,9 +108,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 - **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/docs/tutorial/getting-started/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On Netlify](https://netlify.com)
-
-The fastest way to combine your favorite tools and APIs to build the fastest sites, stores, and apps for the web. And also the best place to build, deploy, and host your Gatsby sites.
