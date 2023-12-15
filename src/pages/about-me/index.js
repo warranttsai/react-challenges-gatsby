@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import Layout from "../../components/layout";
 import Instagram from "../../../static/instagram-icon.png";
 import Github from "../../../static/github-icon.png";
@@ -44,9 +45,29 @@ export default function AboueMe({ data, location }) {
               className="d-flex justify-content-center aling-items-center"
               style={{ gap: 50 }}
             >
-              <img src={Instagram} style={{ width: 50 }} alt="" />
-              <img src={LinkedIn} style={{ width: 50 }} alt="" />
-              <img src={Github} style={{ width: 50 }} alt="" />
+              <Link
+                href="https://www.instagram.com/warrant_jiayou_xd/"
+                itemProp="url"
+                target="_blank"
+              >
+                <img src={Instagram} style={{ width: 50 }} alt="" />
+              </Link>
+
+              <Link
+                href="https://www.linkedin.com/in/warrant-tsai-20463414b/"
+                itemProp="url"
+                target="_blank"
+              >
+                <img src={LinkedIn} style={{ width: 50 }} alt="" />
+              </Link>
+              <Link
+                href="
+              https://github.com/warranttsai/"
+                itemProp="url"
+                target="_blank"
+              >
+                <img src={Github} style={{ width: 50 }} alt="" />
+              </Link>
             </div>
           </div>
           <div className="flex-1 d-flex justify-content-center align-items-center">
