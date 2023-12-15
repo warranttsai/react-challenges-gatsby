@@ -1,12 +1,8 @@
 // module
 import React from "react";
-import { Link } from "gatsby";
 // layout
 import Layout from "../../components/layout";
 // image
-import Instagram from "../../../static/instagram-icon.png";
-import Github from "../../../static/github-icon.png";
-import LinkedIn from "../../../static/linkedin-icon.png";
 import ProfilePic from "../../../static/profile-pic.png";
 
 export default function AboueMe({ location }) {
@@ -16,6 +12,7 @@ export default function AboueMe({ location }) {
         className="content-grid"
         style={{
           backgroundColor: "#dda15e",
+          minHeight: 700,
         }}
       >
         <div
@@ -27,11 +24,11 @@ export default function AboueMe({ location }) {
             gap: 10,
           }}
         >
-          <div className="flex-2 d-flex flex-column" style={{ gap: 40 }}>
+          <div className="flex-1 d-flex flex-column" style={{ gap: 40 }}>
             <h1 className="text-left" style={{ fontSize: 50 }}>
               WARRANT TSAI
             </h1>
-            <p className="text-left" style={{ fontSize: 14 }}>
+            <p className="text-left" style={{ fontSize: 16 }}>
               Results-driven web developer with one and a half years of
               proficiency in React JS/TS development. Recently conferred a
               master's degree in Information Technology (2022), demonstrating a
@@ -43,36 +40,8 @@ export default function AboueMe({ location }) {
               tackle new challenges head-on. An open-minded individual receptive
               to diverse perspectives and suggestions.
             </p>
-            <div
-              className="d-flex justify-content-center aling-items-center"
-              style={{ gap: 50 }}
-            >
-              <Link
-                href="https://www.instagram.com/warrant_jiayou_xd/"
-                itemProp="url"
-                target="_blank"
-              >
-                <img src={Instagram} style={{ width: 50 }} alt="" />
-              </Link>
-
-              <Link
-                href="https://www.linkedin.com/in/warrant-tsai-20463414b/"
-                itemProp="url"
-                target="_blank"
-              >
-                <img src={LinkedIn} style={{ width: 50 }} alt="" />
-              </Link>
-              <Link
-                href="
-              https://github.com/warranttsai/"
-                itemProp="url"
-                target="_blank"
-              >
-                <img src={Github} style={{ width: 50 }} alt="" />
-              </Link>
-            </div>
           </div>
-          <div className="flex-1 d-flex justify-content-center align-items-center">
+          <div className="flex-1 d-flex justify-content-center align-items-start">
             <img
               src={ProfilePic}
               style={{ borderRadius: 20, width: "100%", minWidth: 20 }}
