@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
 import ArrowLeft from "../../../../static/arrow-left.png";
 import ArrowRight from "../../../../static/arrow-right.png";
 
 export default function Page({ location }) {
+  const [quote, setQuote] = useState(
+    "In the end, we will remember not the words of our enemies, but the silence of our friends."
+  );
+  const [quotee, setQuotee] = useState("Martin Luther King Jr.");
+  const [quoteList, setQuoteList] = useState([
+    {
+      id: -1,
+      quote:
+        "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+      quotee: "Martin Luther King Jr.",
+    },
+  ]);
+
   return (
     <Layout location={location}>
       <ReactChallengeLayout>
@@ -19,10 +32,9 @@ export default function Page({ location }) {
         <div className="text-left mt-3">
           <span style={{ fontSize: 40 }}>❞</span>
           <p style={{ fontSize: 40, letterSpacing: -2, fontStyle: "italic" }}>
-            In the end, we will remember not the words of our enemies, but the
-            silence of our friends.
+            {quote}
           </p>
-          <span style={{ fontSize: 28 }}>- Martin Luther King Jr.</span>
+          <span style={{ fontSize: 28 }}>- {quotee}</span>
         </div>
         {/* Buttons */}
         <div className="d-flex mt-3" style={{ gap: 20 }}>
