@@ -88,8 +88,8 @@ body {
   padding: 10px 30px;
 }
 .button-border-animation:hover {
-  background-color: #fefae0;
-  box-shadow: 0 0 50px #fefae0;
+  background-color: #dda15e;
+  box-shadow: 0 0 50px var(--bs-border-color);
 }
 .button-border-animation::before {
   content: "";
@@ -98,8 +98,8 @@ body {
   left: 0;
   width: 10px;
   height: 10px;
-  border-left: 2px solid black;
-  border-top: 2px solid black;
+  border-left: 2px solid var(--bs-border-color);
+  border-top: 2px solid var(--bs-border-color);
   transition: 0.5s;
 }
 
@@ -110,8 +110,8 @@ body {
   right: 0;
   width: 10px;
   height: 10px;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
+  border-bottom: 2px solid var(--bs-border-color);
+  border-right: 2px solid var(--bs-border-color);
   transition: 0.5s;
 }
 .button-border-animation:hover::before,
