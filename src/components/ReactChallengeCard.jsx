@@ -24,7 +24,7 @@ export default function ReactChallengeCard({
         </p>
         <div className="w-100 text-center">
           <Link
-            href={`/react-challenge/` + slug}
+            to={`/react-challenge/` + slug}
             className="btn btn-primary"
             itemProp="url"
           >

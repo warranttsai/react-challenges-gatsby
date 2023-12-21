@@ -19,10 +19,10 @@ const Layout = ({ location, children }) => {
           className="full-width header d-flex justify-content-center align-items-center"
           style={{ gap: 50, paddingInline: 20 }}
         >
-          <Link href="/" className="text-button" itemProp="url">
+          <Link to="/" className="text-button" itemProp="url">
             REACT CHALLENGES
           </Link>
-          <Link href="/about-me" className="text-button" itemProp="url">
+          <Link to="/about-me" className="text-button" itemProp="url">
             ABOUT ME
           </Link>
         </div>
@@ -41,29 +41,32 @@ const Layout = ({ location, children }) => {
             className="d-flex justify-content-center aling-items-center"
             style={{ gap: 50 }}
           >
-            <Link
+            <a
               href="https://www.instagram.com/warrant_jiayou_xd/"
               itemProp="url"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={Instagram} style={{ width: 50 }} alt="" />
-            </Link>
+            </a>
 
-            <Link
+            <a
               href="https://www.linkedin.com/in/warrant-tsai-20463414b/"
               itemProp="url"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={LinkedIn} style={{ width: 50 }} alt="" />
-            </Link>
-            <Link
+            </a>
+            <a
               href="
               https://github.com/warranttsai/"
               itemProp="url"
               target="_blank"
+              rel="noreferrer"
             >
               <img src={Github} style={{ width: 50 }} alt="" />
-            </Link>
+            </a>
           </div>
           <span>EMAIL: warrant1997@gmail.com</span>
           <span>MOBILE: 0450601208</span>

@@ -7,7 +7,7 @@ const ReactChallengeLayout = ({ children }) => {
     <>
       <article className="content-grid" style={{ paddingBlock: 150 }}>
         <div>
-          <Link href="/" className="text-button-fade-in">
+          <Link to="/" className="text-button-fade-in">
             Back To List
           </Link>
         </div>
