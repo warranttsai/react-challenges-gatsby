@@ -98,8 +98,8 @@ body {
   left: 0;
   width: 10px;
   height: 10px;
-  border-left: 2px solid var(--bs-border-color);
-  border-top: 2px solid var(--bs-border-color);
+  border-left: 2px solid black;
+  border-top: 2px solid black;
   transition: 0.5s;
 }
 
@@ -110,8 +110,8 @@ body {
   right: 0;
   width: 10px;
   height: 10px;
-  border-bottom: 2px solid var(--bs-border-color);
-  border-right: 2px solid var(--bs-border-color);
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
   transition: 0.5s;
 }
 .button-border-animation:hover::before,
