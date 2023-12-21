@@ -17,6 +17,9 @@ Figma Prototype:
 # Technology Stacks
 
 - Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-hello-world/)
+- AWS Lambda
+- AWS API Gateway
+- AWS DynomoDB
 
 # Commands
 
