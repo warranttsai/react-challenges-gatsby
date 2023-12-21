@@ -3,12 +3,14 @@ import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
 import ArrowLeft from "../../../../static/arrow-left.png";
 import ArrowRight from "../../../../static/arrow-right.png";
+import axios from "axios";
+import { requestListAPI } from "../../../lib/global";
 
 export default function Page({ location }) {
-  const [quote, setQuote] = useState(
+  const [displayQuote, setDisplayQuote] = useState(
     "In the end, we will remember not the words of our enemies, but the silence of our friends."
   );
-  const [quotee, setQuotee] = useState("Martin Luther King Jr.");
+  const [displayQuotee, setDisplayQuotee] = useState("Martin Luther King Jr.");
   const [quoteList, setQuoteList] = useState([
     {
       id: -1,
@@ -32,16 +34,36 @@ export default function Page({ location }) {
         <div className="text-left mt-3">
           <span style={{ fontSize: 40 }}>❞</span>
           <p style={{ fontSize: 40, letterSpacing: -2, fontStyle: "italic" }}>
-            {quote}
+            {displayQuote}
           </p>
-          <span style={{ fontSize: 28 }}>- {quotee}</span>
+          <span style={{ fontSize: 28 }}>- {displayQuotee}</span>
         </div>
         {/* Buttons */}
         <div className="d-flex mt-3" style={{ gap: 20 }}>
           <a className="button-border-animation">
             <img src={ArrowLeft} style={{ height: 40 }} alt="" />
           </a>
-          <a className="button-border-animation">
+          <a
+            className="button-border-animation"
+            onClick={() => {
+              const payload = {
+                endpoint: "getRandomQuote",
+              };
+              axios.post(`${requestListAPI}`, payload).then((res) => {
+                const item = res.data["Item"];
+                setDisplayQuote(item.quote);
+                setDisplayQuotee(item.quotee);
+
+                const newQuote = {
+                  id: item.id,
+                  quote: item.quote,
+                  quotee: item.quotee,
+                };
+                if (!quoteList.includes(newQuote))
+                  setQuoteList([...quoteList, newQuote]);
+              });
+            }}
+          >
             <img src={ArrowRight} style={{ height: 40 }} alt="" />
           </a>
         </div>
