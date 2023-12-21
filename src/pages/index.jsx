@@ -49,14 +49,22 @@ const BlogIndex = ({ location }) => {
         {/* spacer */}
         <span style={{ height: 30 }} />
         <div className="floating-up-down text-center">
-          <span
-            style={{ fontSize: "clamp(16px, 1.6vw, 23px)", cursor: "pointer" }}
-            onClick={() => {
-              reactChallengeRef.current.scrollIntoView({ behavior: "smooth" });
+          <button
+            style={{
+              fontSize: "clamp(16px, 1.6vw, 23px)",
+              cursor: "pointer",
+              background: "none",
+              border: "none",
+              padding: 0,
+              font: "inherit",
+              color: "inherit",
             }}
+            onClick={() =>
+              reactChallengeRef.current.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Start Exploring...
-          </span>
+          </button>
         </div>
         {/* spacer */}
         <span style={{ height: 70 }} />
@@ -71,6 +79,7 @@ const BlogIndex = ({ location }) => {
           {reactChallengeList.map((item) => {
             return (
               <ReactChallengeCard
+                key={item.number}
                 number={item.number}
                 title={item.title}
                 description={item.description}
