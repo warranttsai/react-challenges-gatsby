@@ -16,7 +16,7 @@ export default function Page({ location }) {
     const payload = {
       endpoint: "getRandomQuote",
     };
-    axios.post(`${requestListAPI}`, payload).then((res) => {
+    axios.post(`${requestListAPI}/reactchallenges`, payload).then((res) => {
       const item = res.data["Item"];
 
       const newQuote = {
