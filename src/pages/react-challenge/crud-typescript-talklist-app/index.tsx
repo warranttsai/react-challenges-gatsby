@@ -34,14 +34,7 @@ const getAllTasks = async () => {
   return data;
 };
 export default function CrudTypescriptTalklistApp() {
-  const [taskList, setTaskList] = useState<taskProps[]>([
-    {
-      id: 0,
-      task: "Buy Groceries",
-      priority: "High",
-      status: "In Progress",
-    },
-  ]);
+  const [taskList, setTaskList] = useState<taskProps[]>([]);
   const [showAddNewModal, setShowAddNewModal] = useState<boolean>(false);
   const handleStatusChange = (id, data) => {
     const listBuf = taskList.map((item: taskProps) =>
@@ -180,10 +173,11 @@ const TaskItem = ({
           className="btn btn-danger"
           onClick={async () => {
             const payload = {
-              endpoint: "addNewItem",
+              endpoint: "deleteItem",
               params: {
                 tableName: tableName,
                 id: id,
+                task: task,
               },
             };
             await axios
@@ -219,7 +213,12 @@ const AddNewModal = ({
       <div className="simple-modal-content">
         <div className="d-flex justify-content-between">
           <h2>Add Task</h2>
-          <button className="btn btn-light">X</button>
+          <button
+            className="btn btn-light"
+            onClick={() => setShowAddNewModal(false)}
+          >
+            X
+          </button>
         </div>
         <div className="grid grid-rows-4 align-items-center" style={{ gap: 5 }}>
           <span style={{ color: "#7d7d7d" }}>Task</span>
