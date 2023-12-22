@@ -25,7 +25,11 @@ const getAllTasks = async () => {
   let data: taskProps[] = [];
   await axios
     .post(`${requestListAPI}/dynamodbOperation`, payload)
-    .then((res) => (data = res.data.Items));
+    .then((res) => (data = res.data.Items))
+    .catch((err) => {
+      alert("Opps! Something wron. Please try again!");
+      console.log(err);
+    });
 
   return data;
 };
@@ -94,6 +98,7 @@ export default function CrudTypescriptTalklistApp() {
                   priority={item.priority}
                   status={item.status}
                   handleStatusChange={handleStatusChange}
+                  setTaskList={setTaskList}
                 />
               );
             })}
@@ -116,12 +121,14 @@ const TaskItem = ({
   priority,
   status,
   handleStatusChange,
+  setTaskList,
 }: {
   id: number;
   task: string;
   priority: string;
   status: string;
   handleStatusChange: (id: any, data: any) => void;
+  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
 }) => {
   const [progress, setProgress] = useState(0);
 
@@ -169,7 +176,29 @@ const TaskItem = ({
         style={{ gap: 5 }}
       >
         <button className="btn btn-secondary">Edit</button>
-        <button className="btn btn-danger">Delete</button>
+        <button
+          className="btn btn-danger"
+          onClick={async () => {
+            const payload = {
+              endpoint: "addNewItem",
+              params: {
+                tableName: tableName,
+                id: id,
+              },
+            };
+            await axios
+              .post(`${requestListAPI}/dynamodbOperation`, payload)
+              .then(() =>
+                getAllTasks().then((taskList) => setTaskList(taskList))
+              )
+              .catch((err) => {
+                alert("Opps! Something wron. Please try again!");
+                console.log(err);
+              });
+          }}
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
@@ -251,8 +280,12 @@ const AddNewModal = ({
                 .post(`${requestListAPI}/dynamodbOperation`, payload)
                 .then(() => {
                   setShowAddNewModal(false);
+                  getAllTasks().then((taskList) => setTaskList(taskList));
+                })
+                .catch((err) => {
+                  alert("Opps! Something wron. Please try again!");
+                  console.log(err);
                 });
-              getAllTasks().then((taskList) => setTaskList(taskList));
             }}
           >
             Add
