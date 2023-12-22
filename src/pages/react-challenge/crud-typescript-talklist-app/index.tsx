@@ -6,18 +6,35 @@ import "react-circular-progressbar/dist/styles.css";
 // layout
 import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
+import axios from "axios";
+import { requestListAPI } from "../../../lib/global";
 interface taskProps {
   id: number;
   task: string;
   priority: string;
   status: string;
 }
+const tableName = "taskList";
+const getAllTasks = async () => {
+  const payload = {
+    endpoint: "getAllItems",
+    params: {
+      tableName: tableName,
+    },
+  };
+  let data: taskProps[] = [];
+  await axios
+    .post(`${requestListAPI}/dynamodbOperation`, payload)
+    .then((res) => (data = res.data.Items));
+
+  return data;
+};
 export default function CrudTypescriptTalklistApp() {
-  const [taskList, setTaskList] = useState<[taskProps]>([
+  const [taskList, setTaskList] = useState<taskProps[]>([
     {
       id: 0,
-      task: "1",
-      priority: "1",
+      task: "Buy Groceries",
+      priority: "High",
       status: "In Progress",
     },
   ]);
@@ -28,6 +45,10 @@ export default function CrudTypescriptTalklistApp() {
     );
     setTaskList(listBuf);
   };
+
+  useEffect(() => {
+    getAllTasks().then((taskList) => setTaskList(taskList));
+  }, []);
 
   return (
     <Layout location={location}>
@@ -63,7 +84,7 @@ export default function CrudTypescriptTalklistApp() {
               + Add Task
             </button>
           </div>
-          <div className="mt-3">
+          <div className="mt-3 d-flex flex-column" style={{ gap: 10 }}>
             {taskList.map((item: taskProps) => {
               return (
                 <TaskItem
@@ -79,7 +100,10 @@ export default function CrudTypescriptTalklistApp() {
           </div>
         </section>
         {showAddNewModal && (
-          <AddNewModal setShowAddNewModal={setShowAddNewModal} />
+          <AddNewModal
+            setShowAddNewModal={setShowAddNewModal}
+            setTaskList={setTaskList}
+          />
         )}
       </ReactChallengeLayout>
     </Layout>
@@ -153,8 +177,10 @@ const TaskItem = ({
 
 const AddNewModal = ({
   setShowAddNewModal,
+  setTaskList,
 }: {
   setShowAddNewModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
 }) => {
   const [inputTask, setInputTask] = useState<string>("");
   const [selectPriority, setSelectPriority] = useState<string>("High");
@@ -208,7 +234,27 @@ const AddNewModal = ({
           </div>
         </div>
         <div className="d-flex justify-content-end">
-          <button className="btn btn-secondary" style={{ width: 100 }}>
+          <button
+            className="btn btn-secondary"
+            style={{ width: 100 }}
+            onClick={async () => {
+              const payload = {
+                endpoint: "addNewItem",
+                params: {
+                  tableName: tableName,
+                  task: inputTask,
+                  priority: selectPriority,
+                  status: "To Do",
+                },
+              };
+              await axios
+                .post(`${requestListAPI}/dynamodbOperation`, payload)
+                .then(() => {
+                  setShowAddNewModal(false);
+                });
+              getAllTasks().then((taskList) => setTaskList(taskList));
+            }}
+          >
             Add
           </button>
         </div>
