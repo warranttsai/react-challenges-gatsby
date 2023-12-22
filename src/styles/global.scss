@@ -200,3 +200,31 @@ body {
 .grid-rows-5 {
   grid-template-rows: repeat(5, minmax(0, 1fr));
 }
+
+/* modal */
+/* The Modal (background) */
+.simple-modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+}
+.simple-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+  min-width: 500px;
+}
+
+.siimple-modal-close-button:hover,
+.siimple-modal-close-button:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

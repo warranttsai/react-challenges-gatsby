@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
+// css
+import "./style.scss";
 import "react-circular-progressbar/dist/styles.css";
 // layout
 import Layout from "../../../components/layout";
@@ -19,6 +21,7 @@ export default function CrudTypescriptTalklistApp() {
       status: "In Progress",
     },
   ]);
+  const [showAddNewModal, setShowAddNewModal] = useState<boolean>(false);
   const handleStatusChange = (id, data) => {
     const listBuf = taskList.map((item: taskProps) =>
       item.id === id ? { ...item, status: data } : item
@@ -52,7 +55,13 @@ export default function CrudTypescriptTalklistApp() {
           <div className="grid grid-cols-3">
             <h2>Task List</h2>
             <div />
-            <button className="btn btn-primary">+ Add Task</button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setShowAddNewModal(true)}
+            >
+              + Add Task
+            </button>
           </div>
           <div className="mt-3">
             {taskList.map((item: taskProps) => {
@@ -69,6 +78,9 @@ export default function CrudTypescriptTalklistApp() {
             })}
           </div>
         </section>
+        {showAddNewModal && (
+          <AddNewModal setShowAddNewModal={setShowAddNewModal} />
+        )}
       </ReactChallengeLayout>
     </Layout>
   );
@@ -128,9 +140,78 @@ const TaskItem = ({
       <div className="d-flex justify-content-center align-items-center">
         <CircularProgressbar value={progress} text={`${progress}%`} />
       </div>
-      <div className="d-flex justify-content-center align-items-center">
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ gap: 5 }}
+      >
         <button className="btn btn-secondary">Edit</button>
         <button className="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  );
+};
+
+const AddNewModal = ({
+  setShowAddNewModal,
+}: {
+  setShowAddNewModal: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
+  const [inputTask, setInputTask] = useState<string>("");
+  const [selectPriority, setSelectPriority] = useState<string>("High");
+
+  return (
+    <div id="simple-modal" className="simple-modal">
+      <div className="simple-modal-content">
+        <div className="d-flex justify-content-between">
+          <h2>Add Task</h2>
+          <button className="btn btn-light">X</button>
+        </div>
+        <div className="grid grid-rows-4 align-items-center" style={{ gap: 5 }}>
+          <span style={{ color: "#7d7d7d" }}>Task</span>
+          <input
+            id="task-input"
+            value={inputTask}
+            onChange={(e) => setInputTask(e.target.value)}
+          />
+          <span style={{ color: "#7d7d7d" }}>Priority</span>
+          <div
+            className="d-flex justify-content-start align-items-center"
+            style={{ gap: 10 }}
+          >
+            <button
+              className={`btn ${
+                selectPriority === "High" ? "btn-danger" : "border-danger"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("High")}
+            >
+              High
+            </button>
+            <button
+              className={`btn ${
+                selectPriority === "Medium" ? "btn-warning" : "border-warning"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("Medium")}
+            >
+              Mediunm
+            </button>
+            <button
+              className={`btn ${
+                selectPriority === "Low" ? "btn-success" : "border-success"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("Low")}
+            >
+              Low
+            </button>
+          </div>
+        </div>
+        <div className="d-flex justify-content-end">
+          <button className="btn btn-secondary" style={{ width: 100 }}>
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );
