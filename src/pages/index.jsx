@@ -33,10 +33,10 @@ const BlogIndex = ({ location }) => {
     },
     {
       number: 4,
-      title: "CRUD TypeScript Talklist App",
-      slug: "crud-typescript-talklist-app/",
+      title: "CRUD Talklist App",
+      slug: "crud-talklist-app/",
       description:
-        "This React Typescript Tasklist/Todo challenge requires you to perform CRUD operations with instructions to write clean, reusable, manageable, and scalable code. This challenge is different and more challenging than the last three challenges you have completed.",
+        "This React Tasklist/Todo challenge requires you to perform CRUD operations with instructions to write clean, reusable, manageable, and scalable code. This challenge is different and more challenging than the last three challenges you have completed.",
     },
   ];
 
