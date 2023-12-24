@@ -114,8 +114,7 @@ const TaskItem = ({
   setTaskList,
 }) => {
   const [progress, setProgress] = useState(0);
-  const [showEditExistModal, setShowEditExistModal] =
-    useState < boolean > false;
+  const [showEditExistModal, setShowEditExistModal] = useState(false);
 
   useEffect(() => {
     if (status === "To Do") setProgress(0);
