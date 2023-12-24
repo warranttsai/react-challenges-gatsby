@@ -206,8 +206,8 @@ const TaskItem = ({
 };
 
 const AddNewModal = ({ setShowAddNewModal, setTaskList }) => {
-  const [inputTask, setInputTask] = useState < string > "";
-  const [selectPriority, setSelectPriority] = useState < string > "High";
+  const [inputTask, setInputTask] = useState("");
+  const [selectPriority, setSelectPriority] = useState("High");
 
   return (
     <div id="simple-modal" className="simple-modal">
@@ -303,8 +303,8 @@ const EdiExistModal = ({
   task,
   priority,
 }) => {
-  const [inputTask, setInputTask] = useState < string > task;
-  const [selectPriority, setSelectPriority] = useState < string > priority;
+  const [inputTask, setInputTask] = useState(task);
+  const [selectPriority, setSelectPriority] = useState(priority);
 
   return (
     <div id="simple-modal" className="simple-modal">
