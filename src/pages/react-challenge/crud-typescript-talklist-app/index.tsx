@@ -34,7 +34,7 @@ const getAllTasks = async () => {
   return data;
 };
 
-export default function CrudTypescriptTalklistApp() {
+export default function CrudTypescriptTalklistApp({ location }) {
   const [taskList, setTaskList] = useState<taskProps[]>([]);
   const [showAddNewModal, setShowAddNewModal] = useState<boolean>(false);
 
