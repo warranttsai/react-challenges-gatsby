@@ -8,12 +8,7 @@ import Layout from "../../../components/layout";
 import ReactChallengeLayout from "../../../components/reactChallengeLayout";
 import axios from "axios";
 import { requestListAPI } from "../../../lib/global";
-interface taskProps {
-  id: number;
-  task: string;
-  priority: string;
-  status: string;
-}
+
 const tableName = "taskList";
 const getAllTasks = async () => {
   const payload = {
@@ -22,7 +17,7 @@ const getAllTasks = async () => {
       tableName: tableName,
     },
   };
-  let data: taskProps[] = [];
+  let data = [];
   await axios
     .post(`${requestListAPI}/dynamodbOperation`, payload)
     .then((res) => (data = res.data.Items))
@@ -35,11 +30,11 @@ const getAllTasks = async () => {
 };
 
 export default function CrudTypescriptTalklistApp({ location }) {
-  const [taskList, setTaskList] = useState<taskProps[]>([]);
-  const [showAddNewModal, setShowAddNewModal] = useState<boolean>(false);
+  const [taskList, setTaskList] = useState([]);
+  const [showAddNewModal, setShowAddNewModal] = useState(false);
 
   const handleStatusChange = (id, data) => {
-    const listBuf = taskList.map((item: taskProps) =>
+    const listBuf = taskList.map((item) =>
       item.id === id ? { ...item, status: data } : item
     );
     setTaskList(listBuf);
@@ -84,7 +79,7 @@ export default function CrudTypescriptTalklistApp({ location }) {
             </button>
           </div>
           <div className="mt-3 d-flex flex-column" style={{ gap: 10 }}>
-            {taskList.map((item: taskProps) => {
+            {taskList.map((item) => {
               return (
                 <TaskItem
                   key={item.id}
@@ -117,16 +112,10 @@ const TaskItem = ({
   status,
   handleStatusChange,
   setTaskList,
-}: {
-  id: number;
-  task: string;
-  priority: string;
-  status: string;
-  handleStatusChange: (id: any, data: any) => void;
-  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
 }) => {
   const [progress, setProgress] = useState(0);
-  const [showEditExistModal, setShowEditExistModal] = useState<boolean>(false);
+  const [showEditExistModal, setShowEditExistModal] =
+    useState < boolean > false;
 
   useEffect(() => {
     if (status === "To Do") setProgress(0);
@@ -217,15 +206,9 @@ const TaskItem = ({
   );
 };
 
-const AddNewModal = ({
-  setShowAddNewModal,
-  setTaskList,
-}: {
-  setShowAddNewModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
-}) => {
-  const [inputTask, setInputTask] = useState<string>("");
-  const [selectPriority, setSelectPriority] = useState<string>("High");
+const AddNewModal = ({ setShowAddNewModal, setTaskList }) => {
+  const [inputTask, setInputTask] = useState < string > "";
+  const [selectPriority, setSelectPriority] = useState < string > "High";
 
   return (
     <div id="simple-modal" className="simple-modal">
@@ -320,15 +303,9 @@ const EdiExistModal = ({
   id,
   task,
   priority,
-}: {
-  setShowEditExistModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
-  id: number;
-  task: string;
-  priority: string;
 }) => {
-  const [inputTask, setInputTask] = useState<string>(task);
-  const [selectPriority, setSelectPriority] = useState<string>(priority);
+  const [inputTask, setInputTask] = useState < string > task;
+  const [selectPriority, setSelectPriority] = useState < string > priority;
 
   return (
     <div id="simple-modal" className="simple-modal">

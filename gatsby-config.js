@@ -8,8 +8,5 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  flags: {
-    DEV_SSR: true,
-  },
   plugins: [`gatsby-plugin-image`, `gatsby-plugin-sharp`, `gatsby-plugin-sass`],
 };
