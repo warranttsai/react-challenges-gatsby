@@ -16,7 +16,7 @@ export default function Page({ location }) {
     const payload = {
       endpoint: "getRandomQuote",
     };
-    axios.post(`${requestListAPI}`, payload).then((res) => {
+    axios.post(`${requestListAPI}/reactchallenges`, payload).then((res) => {
       const item = res.data["Item"];
 
       const newQuote = {
@@ -50,14 +50,14 @@ export default function Page({ location }) {
     <Layout location={location}>
       <ReactChallengeLayout>
         <h1>Random Quote Generator</h1>
-        <span id="challenge1-introduction">
+        <article id="random-quote-generator-introduction">
           In this challenge, you will develop one of the main react applications
           for beginners. It'll help you to learn many Javascript and React
           concepts. This challenge differs slightly from Text Analyzer and
           Password Generator because you need to fetch data from json-server
           using Axios.
-        </span>
-        <ol className="list-decimal">
+        </article>
+        <ol>
           <li>Which skills are going to test?</li>
           <li>
             How to fetch API in react using axios How useState and useEffect

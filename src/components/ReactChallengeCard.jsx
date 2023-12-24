@@ -15,7 +15,7 @@ export default function ReactChallengeCard({
           <img style={{ height: 30, width: 30 }} src={Icon} alt="" />
           <h5 className="card-title">{`React Challenge ${number}`}</h5>
         </div>
-        <b>{title}</b>
+        <b style={{ fontStyle: "italic" }}>{title}</b>
         <p
           className="card-text"
           style={{ maxHeight: 150, overflowY: "scroll", fontSize: "1rem" }}
