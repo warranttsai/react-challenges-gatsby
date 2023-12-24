@@ -33,9 +33,11 @@ const getAllTasks = async () => {
 
   return data;
 };
+
 export default function CrudTypescriptTalklistApp() {
   const [taskList, setTaskList] = useState<taskProps[]>([]);
   const [showAddNewModal, setShowAddNewModal] = useState<boolean>(false);
+
   const handleStatusChange = (id, data) => {
     const listBuf = taskList.map((item: taskProps) =>
       item.id === id ? { ...item, status: data } : item
@@ -124,6 +126,7 @@ const TaskItem = ({
   setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
 }) => {
   const [progress, setProgress] = useState(0);
+  const [showEditExistModal, setShowEditExistModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (status === "To Do") setProgress(0);
@@ -132,69 +135,85 @@ const TaskItem = ({
   }, [status]);
 
   return (
-    <div
-      className="grid grid-cols-5 text-center"
-      style={{
-        borderRadius: 20,
-        background: "white",
-        padding: "10px 20px",
-        gap: 20,
-      }}
-    >
-      <div className="grid grid-rows-2 justify-content-center align-items-center">
-        <h5 style={{ color: "#7d7d7d" }}>Task</h5>
-        <p>{task}</p>
-      </div>
-      <div className="grid grid-rows-2 justify-content-center align-items-center">
-        <h5 style={{ color: "#7d7d7d" }}>Priority</h5>
-        <p>{priority}</p>
-      </div>
-      <div className="d-flex justify-content-center align-items-center">
-        <button
-          className="btn btn-light"
-          onClick={() => {
-            if (status === "To Do") handleStatusChange(id, "In Progress");
-            else if (status === "In Progress") handleStatusChange(id, "Done");
-            else if (status === "Done") handleStatusChange(id, "To Do");
-          }}
-        >
-          {status}
-        </button>
-      </div>
-      <div className="d-flex justify-content-center align-items-center">
-        <CircularProgressbar value={progress} text={`${progress}%`} />
-      </div>
+    <>
       <div
-        className="d-flex justify-content-center align-items-center"
-        style={{ gap: 5 }}
+        className="grid grid-cols-5 text-center"
+        style={{
+          borderRadius: 20,
+          background: "white",
+          padding: "10px 20px",
+          gap: 20,
+        }}
       >
-        <button className="btn btn-secondary">Edit</button>
-        <button
-          className="btn btn-danger"
-          onClick={async () => {
-            const payload = {
-              endpoint: "deleteItem",
-              params: {
-                tableName: tableName,
-                id: id,
-                task: task,
-              },
-            };
-            await axios
-              .post(`${requestListAPI}/dynamodbOperation`, payload)
-              .then(() =>
-                getAllTasks().then((taskList) => setTaskList(taskList))
-              )
-              .catch((err) => {
-                alert("Opps! Something wron. Please try again!");
-                console.log(err);
-              });
-          }}
+        <div className="grid grid-rows-2 justify-content-center align-items-center">
+          <h5 style={{ color: "#7d7d7d" }}>Task</h5>
+          <p style={{ overflowX: "auto" }}>{task}</p>
+        </div>
+        <div className="grid grid-rows-2 justify-content-center align-items-center">
+          <h5 style={{ color: "#7d7d7d" }}>Priority</h5>
+          <p>{priority}</p>
+        </div>
+        <div className="d-flex justify-content-center align-items-center">
+          <button
+            className="btn btn-light"
+            onClick={() => {
+              if (status === "To Do") handleStatusChange(id, "In Progress");
+              else if (status === "In Progress") handleStatusChange(id, "Done");
+              else if (status === "Done") handleStatusChange(id, "To Do");
+            }}
+          >
+            {status}
+          </button>
+        </div>
+        <div className="d-flex justify-content-center align-items-center">
+          <CircularProgressbar value={progress} text={`${progress}%`} />
+        </div>
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ gap: 5 }}
         >
-          Delete
-        </button>
+          <button
+            className="btn btn-secondary"
+            onClick={() => setShowEditExistModal(true)}
+          >
+            Edit
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={async () => {
+              const payload = {
+                endpoint: "deleteItem",
+                params: {
+                  tableName: tableName,
+                  id: id,
+                  task: task,
+                },
+              };
+              await axios
+                .post(`${requestListAPI}/dynamodbOperation`, payload)
+                .then(() =>
+                  getAllTasks().then((taskList) => setTaskList(taskList))
+                )
+                .catch((err) => {
+                  alert("Opps! Something wron. Please try again!");
+                  console.log(err);
+                });
+            }}
+          >
+            Delete
+          </button>
+        </div>
       </div>
-    </div>
+      {showEditExistModal && (
+        <EdiExistModal
+          setShowEditExistModal={setShowEditExistModal}
+          setTaskList={setTaskList}
+          id={id}
+          task={task}
+          priority={priority}
+        />
+      )}
+    </>
   );
 };
 
@@ -263,7 +282,7 @@ const AddNewModal = ({
         </div>
         <div className="d-flex justify-content-end">
           <button
-            className="btn btn-secondary"
+            className="btn btn-primary"
             style={{ width: 100 }}
             onClick={async () => {
               const payload = {
@@ -288,6 +307,109 @@ const AddNewModal = ({
             }}
           >
             Add
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const EdiExistModal = ({
+  setShowEditExistModal,
+  setTaskList,
+  id,
+  task,
+  priority,
+}: {
+  setShowEditExistModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setTaskList: React.Dispatch<React.SetStateAction<taskProps[]>>;
+  id: number;
+  task: string;
+  priority: string;
+}) => {
+  const [inputTask, setInputTask] = useState<string>(task);
+  const [selectPriority, setSelectPriority] = useState<string>(priority);
+
+  return (
+    <div id="simple-modal" className="simple-modal">
+      <div className="simple-modal-content">
+        <div className="d-flex justify-content-between">
+          <h2>Edit Task</h2>
+          <button
+            className="btn btn-light"
+            onClick={() => setShowEditExistModal(false)}
+          >
+            X
+          </button>
+        </div>
+        <div className="grid grid-rows-4 align-items-center" style={{ gap: 5 }}>
+          <span style={{ color: "#7d7d7d" }}>Task</span>
+          <input
+            id="task-input"
+            value={inputTask}
+            onChange={(e) => setInputTask(e.target.value)}
+          />
+          <span style={{ color: "#7d7d7d" }}>Priority</span>
+          <div
+            className="d-flex justify-content-start align-items-center"
+            style={{ gap: 10 }}
+          >
+            <button
+              className={`btn ${
+                selectPriority === "High" ? "btn-danger" : "border-danger"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("High")}
+            >
+              High
+            </button>
+            <button
+              className={`btn ${
+                selectPriority === "Medium" ? "btn-warning" : "border-warning"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("Medium")}
+            >
+              Mediunm
+            </button>
+            <button
+              className={`btn ${
+                selectPriority === "Low" ? "btn-success" : "border-success"
+              }`}
+              style={{ width: 100 }}
+              onClick={() => setSelectPriority("Low")}
+            >
+              Low
+            </button>
+          </div>
+        </div>
+        <div className="d-flex justify-content-end">
+          <button
+            className="btn btn-primary"
+            style={{ width: 100 }}
+            onClick={async () => {
+              const payload = {
+                endpoint: "updateItem",
+                params: {
+                  tableName: tableName,
+                  id: id,
+                  task: inputTask,
+                  priority: selectPriority,
+                },
+              };
+              await axios
+                .post(`${requestListAPI}/dynamodbOperation`, payload)
+                .then(() => {
+                  setShowEditExistModal(false);
+                  getAllTasks().then((taskList) => setTaskList(taskList));
+                })
+                .catch((err) => {
+                  alert("Opps! Something wron. Please try again!");
+                  console.log(err);
+                });
+            }}
+          >
+            Edit
           </button>
         </div>
       </div>
