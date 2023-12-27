@@ -144,10 +144,32 @@ const TaskItem = ({
         <div className="d-flex justify-content-center align-items-center">
           <button
             className="btn btn-light"
-            onClick={() => {
-              if (status === "To Do") handleStatusChange(id, "In Progress");
-              else if (status === "In Progress") handleStatusChange(id, "Done");
-              else if (status === "Done") handleStatusChange(id, "To Do");
+            onClick={async () => {
+              let newStatus = "To Do";
+              if (status === "To Do") newStatus = "In Progress";
+              else if (status === "In Progress") newStatus = "Done";
+              else if (status === "Done") newStatus = "To Do";
+
+              const payload = {
+                endpoint: "updateItem",
+                params: {
+                  tableName: tableName,
+                  id: id,
+                  task: task,
+                  priority: priority,
+                  status: newStatus,
+                },
+              };
+              await axios
+                .post(`${requestListAPI}/dynamodbOperation`, payload)
+                .then(() => {
+                  handleStatusChange(id, newStatus);
+                  getAllTasks().then((taskList) => setTaskList(taskList));
+                })
+                .catch((err) => {
+                  alert("Opps! Something wron. Please try again!");
+                  console.log(err);
+                });
             }}
           >
             {status}
@@ -205,12 +227,19 @@ const TaskItem = ({
   );
 };
 
+/**
+ * Modal for adding a new task
+ * @param {Object} param0 - Destructured props
+ * @param {Function} setShowAddNewModal - Function to control the visibility of the add new task modal
+ * @param {Function} setTaskList - Function to set the task list
+ * @returns {JSX.Element} - The modal for adding a new task
+ */
 const AddNewModal = ({ setShowAddNewModal, setTaskList }) => {
   const [inputTask, setInputTask] = useState("");
   const [selectPriority, setSelectPriority] = useState("High");
 
   return (
-    <div id="simple-modal" className="simple-modal">
+    <div id="add-new-modal-root" className="simple-modal">
       <div className="simple-modal-content">
         <div className="d-flex justify-content-between">
           <h2>Add Task</h2>
@@ -296,6 +325,15 @@ const AddNewModal = ({ setShowAddNewModal, setTaskList }) => {
   );
 };
 
+/**
+ * Edit an existing task in a modal
+ * @param {Function} setShowEditExistModal - Function to control the visibility of the edit modal
+ * @param {Function} setTaskList - Function to set the task list
+ * @param {string} id - The ID of the task
+ * @param {string} task - The task content
+ * @param {string} priority - The priority of the task
+ * @ret
+ */
 const EdiExistModal = ({
   setShowEditExistModal,
   setTaskList,
@@ -371,6 +409,7 @@ const EdiExistModal = ({
                   id: id,
                   task: inputTask,
                   priority: selectPriority,
+                  status: "To Do",
                 },
               };
               await axios
