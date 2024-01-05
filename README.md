@@ -1,7 +1,7 @@
 # react-challenges-gatsby
 
-- Project Link: https://react-challenges-gatsby.vercel.app/
-- Description: This project was set to collect my pieces of scripts from the following questions:
+## Project Link: https://react-challenges-gatsby.vercel.app/
+## Description: This project was set to collect my pieces of scripts from the following questions:
 
 - React Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
 - 5 Free ReactJS Coding Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
@@ -14,7 +14,7 @@ Figma Prototype:
 2. About me page: https://www.figma.com/file/tsI1gEsf8Fk5uV3sHKW6AG/Contact-%26-About-Me-Page?type=design&mode=design&t=Yj3viycBH9fgy6U6-1
 3. Challenge Page: https://www.figma.com/file/6H5ZfYE65FJy2G129GNLMy/Challenge-Page?type=design&mode=design&t=Yj3viycBH9fgy6U6-1
 
-# Technology Stacks
+## Technology Stacks
 
 - Gatsby.JS (https://www.gatsbyjs.com/starters/gatsbyjs/gatsby-starter-hello-world/)
 - Bootstrap
@@ -22,7 +22,7 @@ Figma Prototype:
 - AWS API Gateway
 - AWS DynomoDB
 
-# Commands
+## Commands
 
 "build": "gatsby build",
 "develop": "gatsby develop",
@@ -31,7 +31,7 @@ Figma Prototype:
 "clean": "gatsby clean",
 "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
 
-# Node Version
+## Node Version
 
 v20.9.0
 
