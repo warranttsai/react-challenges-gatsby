@@ -1,7 +1,7 @@
 # react-challenges-gatsby
 
-Project Link: https://react-challenges-gatsby.vercel.app/
-Description: This project was set to collect my pieces of scripts from the following questions:
+- Project Link: https://react-challenges-gatsby.vercel.app/
+- Description: This project was set to collect my pieces of scripts from the following questions:
 
 - React Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
 - 5 Free ReactJS Coding Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
