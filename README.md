@@ -7,7 +7,7 @@ https://react-challenges-gatsby.vercel.app/
 ## Description
 
 This project was set to collect my pieces of scripts from the following questions:
-- React Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
+- React Challenges (https://reactchallenges.live/)
 - 5 Free ReactJS Coding Challenges (https://www.codevertiser.com/free-reactjs-coding-challenges-for-responsive-UI/)
 
 In the mean time, Figma was used to help designing the layout of the website.
